@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inner Team Management</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -31,7 +32,7 @@
         <form id="teamForm">
             <div class="selection">
                 <h3>Add an Inner Team Member:</h3>
-                <label for="memberName">Name:</label>
+                <label for="memberName">Voice Name:</label>
                 <select id="memberName" required>
                     <option value="" disabled selected>Choose a name for your voice or create one!</option>
                     <option value="Anxiety">The Anxiety Patrol</option>
@@ -58,10 +59,10 @@
                 </select>
                 <input id="customName" type="text" placeholder="Enter custom name" style="display: none;" />
 
-                <label for="memberRole">Voice:</label>
-                <input id="memberRole" type="text" maxlength="50" placeholder="What is your voice saying?" required />
+                <label for="memberRole">Voice Message:</label>
+                <input id="memberRole" type="text" maxlength="50" placeholder="What is the inner voice saying?" required />
 
-                <label for="memberEmoji">Choose an icon for your voice:</label>
+                <label for="memberEmoji">Choose a face for your voice:</label>
                 <div class="emoji-picker" id="emojiPicker">
                     <!-- Emoji choices -->
                     <span>🙂</span> <!-- Standard emoji -->
