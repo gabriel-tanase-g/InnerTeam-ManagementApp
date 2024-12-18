@@ -20,10 +20,12 @@ header {
     width: 100%;
     height: 4rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: var(--secondary-color);
     box-shadow: 0 0 5px black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 header button {
@@ -35,7 +37,18 @@ header button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+#logo {
+    height: 60px; /* Adjust size as needed */
+    margin-right: 10px; /* Add space between logo and button */
+    margin-left:3rem;
+}
 
+#new-project {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right:3rem;
+}
 header button:hover {
     background-color: darkorange;
 }

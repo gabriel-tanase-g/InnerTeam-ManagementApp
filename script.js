@@ -1,3 +1,24 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const teamMembers = document.querySelectorAll(".team .person");
+    const teamSize = teamMembers.length;
+
+    // Position team members around the circle
+    teamMembers.forEach((member, index) => {
+        const angle = (index / teamSize) * 2 * Math.PI; // Calculate angle for each member
+        member.style.setProperty("--angle", `${angle}rad`); // Set angle dynamically
+
+        // Animate each member to appear sequentially
+        setTimeout(() => {
+            member.style.animationDelay = `${index * 0.5}s`; // Stagger their animations
+        }, index * 500);
+    });
+
+    // Hide animation and show content after all animations complete
+    setTimeout(() => {
+        document.body.classList.add("ready");
+    }, (teamSize + 2) * 500); // Adjust timing to ensure all animations finish
+});
+
 const newProjectButton = document.getElementById('new-project');
 const formDialog = document.getElementById('formDialog');
 const closeProjectDialogButton = document.getElementById('closeProjectDialog');
