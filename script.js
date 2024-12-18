@@ -112,7 +112,7 @@ function displayProjects() {
 
         const deleteProjectButton = document.createElement('button');
         deleteProjectButton.textContent = 'Delete Project';
-        deleteProjectButton.classList.add('close');
+        deleteProjectButton.classList.add('close', 'delete-project-btn'); 
         deleteProjectButton.addEventListener('click', () => {
             // Remove project from the array
             projects.splice(index, 1);

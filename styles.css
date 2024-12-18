@@ -1,4 +1,3 @@
-/* General Styles */
 :root {
     --main-color: rgb(241, 168, 32);
     --secondary-color: rgb(155, 154, 154);
@@ -44,16 +43,15 @@ header button:hover {
 /* Project Shelf */
 .project-shelf {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 10px;
     padding: 2rem;
     justify-content: center;
 }
 
 .project-card {
     width: 90%;
-    max-width: 350px;
-    border: 2px solid var(--main-color);
+    max-width: 30rem;
     border-radius: 10px;
     padding: 1rem;
     background: #fff;
@@ -61,13 +59,20 @@ header button:hover {
     flex-direction: column;
     gap: 1rem;
     margin: 0 auto;
+    box-shadow: 2px 2px 2px var(--secondary-color);
+    position: relative;
 }
 
-.selection{
+.project-card .delete-project-btn {
+    margin-top: auto; /* This will push the button to the bottom */
+}
+
+.selection {
     display: flex;
     flex-direction: column;
-    gap:0.5rem;
+    gap: 0.5rem;
 }
+
 /* Team Member */
 .team-member {
     display: flex;
@@ -93,8 +98,8 @@ header button:hover {
 }
 
 .close {
-    border:none;
-    margin:0 auto;
+    border: none;
+    margin: 0 auto;
     border-radius: 0.7rem;
     background-color: hsl(0, 80%, 50%);
     color: white;
@@ -210,10 +215,9 @@ dialog button {
     flex-direction: column;
     align-items: center;
     position: relative;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 0.5rem;
-    background: #fafafa;
+    background: #f7f5f3;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
     min-height: 120px;
     width: 100%;
@@ -242,38 +246,40 @@ dialog button {
     margin-bottom: 0.5rem;
     display: inline-block;
 }
+
+/* Intro Message Styles */
 #introMessage {
-    background-color: #f3f4f6;  /* Light background color */
-    border-radius: 8px;  /* Rounded corners */
+    background-color: #f3f4f6;
+    border-radius: 8px;
     padding: 40px;
     max-width: 700px;
-    margin: 50px auto;  /* Center the message block */
-    text-align: center;  /* Center align the text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow effect */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Clean modern font */
+    margin: 50px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #introMessage h2 {
     font-size: 2.5rem;
-    color: #333;  /* Dark color for header */
+    color: #333;
     margin-bottom: 20px;
 }
 
 #introMessage p {
     font-size: 1.2rem;
-    color: #555;  /* Softer color for paragraph */
+    color: #555;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
 #introMessage h3 {
     font-size: 1.8rem;
-    color: #e74c3c;  /* Red color for emphasis */
+    color: #e74c3c;
     margin-top: 20px;
 }
 
 #introMessage button {
-    background-color: #3498db;  /* Blue button color */
+    background-color: #3498db;
     color: white;
     padding: 12px 24px;
     border: none;
@@ -284,7 +290,7 @@ dialog button {
 }
 
 #introMessage button:hover {
-    background-color: #2980b9;  /* Darker blue on hover */
+    background-color: #2980b9;
 }
 
 #introMessage a {
@@ -297,3 +303,114 @@ dialog button {
     color: #2980b9;
 }
 
+/* Media Queries for Mobile and Smaller Screens */
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 10px;
+    }
+
+    header button {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .project-shelf {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    #introMessage {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    #introMessage h2 {
+        font-size: 2rem;
+    }
+
+    #introMessage p {
+        font-size: 1rem;
+    }
+
+    #introMessage h3 {
+        font-size: 1.5rem;
+    }
+
+    #introMessage button {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .emoji-picker {
+        font-size: 1.2rem;
+        max-width: 100%;
+    }
+
+    .team-member button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member button {
+        width: 100%;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .emoji-picker {
+        font-size: 1.3rem;
+    }
+
+    .project-shelf {
+        padding: 1rem;
+    }
+}
+/* Reset button styles for mobile devices */
+button {
+    color: inherit; /* Ensures button text color matches the parent text color */
+    background-color: transparent; /* Removes the default background */
+    border: none; /* Removes the default border */
+    outline: none; /* Removes the focus outline */
+}
+
+/* Override iOS default link styling */
+button, a {
+    -webkit-appearance: none; /* Removes default iOS button styling */
+    -moz-appearance: none;
+    appearance: none;
+    text-decoration: none; /* Removes underline from links (if you use them as buttons) */
+}
+
+/* Specific button styles */
+header button,
+.add,
+.team-member button {
+    color: #fff; /* Use white text for buttons */
+    background-color: var(--main-color); /* Your preferred background color */
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+header button:hover,
+.add:hover,
+.team-member button:hover {
+    background-color: darkorange; /* Darken background color on hover */
+}
+
+/* Additional Button Specific Styles */
+button:focus {
+    outline: none; /* Prevents focus outline */
+    box-shadow: none; /* Removes default focus box shadow */
+}
