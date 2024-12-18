@@ -4,176 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inner Team Management</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-        }
-        h1, h3, p {
-            margin: 0;
-        }
-        :root {
-            --main-color: rgb(241, 168, 32);
-            --secondary-color: rgb(155, 154, 154);
-        }
-
-        header {
-            width: 100%;
-            height: 4rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--secondary-color);
-            box-shadow: 0 0 5px black;
-        }
-
-        header button {
-            border: none;
-            border-radius: 5px;
-            padding: 0.5rem 1rem;
-            font-weight: 600;
-            background-color: var(--main-color);
-            cursor: pointer;
-        }
-
-        header button:hover {
-            background-color: darkorange;
-        }
-
-        .project-shelf {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 2rem;
-            justify-content: center; /* Center the projects */
-        }
-
-        .project-card {
-            width: 90%; /* Set width to 90% of the container */
-            max-width: 350px; /* Set a max width to prevent stretching */
-            border: 2px solid var(--main-color);
-            border-radius: 10px;
-            padding: 1rem;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 0 auto; /* Center project cards */
-        }
-
-        .team-member {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    background: #fafafa;
-    position: relative;
-    align-items: center;
-    min-height: 120px; /* Ensure enough height to contain buttons */
-}
-
-.team-member button {
-    padding: 0.3rem 0.6rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 5px; /* Add spacing between the buttons */
-    font-size: 0.9rem;
-    width: 80px; /* Ensure consistent button size */
-}
-
-.team-member .edit-btn {
-    background-color: blue;
-    color: white;
-}
-
-.team-member .delete-btn {
-    background-color: red;
-    color: white;
-}
-
-.team-member .edit-btn,
-.team-member .delete-btn {
-    margin-left: 5px; /* Space between buttons */
-    display: inline-block;
-}
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        form input[type=text], form input[type=number], form button {
-            padding: 0.5rem;
-            border-radius: 5px;
-            border: 1px solid var(--secondary-color);
-        }
-
-        dialog {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            padding: 1rem;
-        }
-
-        dialog button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .close {
-            background-color: red;
-            color: white;
-            cursor: pointer;
-        }
-
-        .add {
-            background-color: var(--main-color);
-            color: white;
-            cursor: pointer;
-        }
-
-        .emoji-picker {
-            font-size: 1.5rem;
-            padding: 0.5rem;
-            cursor: pointer;
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-            max-width: 300px;
-        }
-
-        .emoji-picker span {
-            cursor: pointer;
-            padding: 0.2rem;
-        }
-
-        .emoji-picker .selected {
-            outline: 3px solid #f1a820;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <button id="new-project">+ New Project</button>
+        <button id="new-project">Add a New Goal You Want to Work on!</button>
     </header>
     <div class="project-shelf" id="projectShelf"></div>
 
     <dialog id="formDialog">
         <form id="projectForm">
             <div>
-                <label for="projectName">Project Name:</label>
+                <label for="projectName">Name</label>
                 <input type="text" id="projectName" required>
             </div>
             <div>
-                <button type="submit" class="add">Save Project</button>
+                <button type="submit" class="add">Save</button>
                 <button type="button" class="close" id="closeProjectDialog">Cancel</button>
             </div>
         </form>
@@ -181,221 +28,80 @@
 
     <dialog id="memberDialog">
         <form id="teamForm">
-            <div>
-                <h3>Add Team Member:</h3>
+            <div class="selection">
+                <h3>Add an Inner Team Member:</h3>
                 <label for="memberName">Name:</label>
-<<<<<<< HEAD
                 <select id="memberName" required>
-                       <option value="" disabled selected>Choose a name for your voice or create one!</option>
-    <option value="Anxiety" data-emoji="😨">The Anxiety Patrol</option>
-    <option value="Motivator" data-emoji="🚀">The Motivator Coach</option>
-    <option value="Procrastinator" data-emoji="🛋️">The Infamous Procrastinator</option>
-    <option value="Doubter" data-emoji="🤔">The Doubter?</option>
-    <option value="Optimist" data-emoji="🌟">The Optimist!</option>
-    <option value="DramaQueen" data-emoji="🎭">The Drama Queen</option>
-    <option value="Overthinker" data-emoji="🤯">The Overthinker (Maybe?)</option>
-    <option value="Perfectionist" data-emoji="🔧">The Perfectionist.</option>
-    <option value="Saboteur" data-emoji="🕵️‍♂️">The Saboteur</option>
-    <option value="WiseOne" data-emoji="🧠">The Wise One</option>
-    <option value="Daydreamer" data-emoji="🌙">The Daydreamer</option>
-    <option value="Rebel" data-emoji="😎">The Rebel</option>
-    <option value="Cynic" data-emoji="🙄">The Cynic</option>
-    <option value="Rationalizer" data-emoji="📚">The Rationalizer</option>
-    <option value="SnackQueen" data-emoji="🍕">The Snack Muncher</option>
-    <option value="FOMO" data-emoji="📱">The FOMO Police (Fear of Missing Out)</option>
-    <option value="SassySavior" data-emoji="💅">Your Sassy Savior</option>
-    <option value="GuiltTrip" data-emoji="😡">The Guilt Trip Agitator</option>
-    <option value="MotivationZero" data-emoji="😴">The Motivation Zero Zone</option>
-    <option value="SarcasticBFF" data-emoji="😜">The Sarcastic BFF</option>
+                    <option value="" disabled selected>Choose a name for your voice or create one!</option>
+                    <option value="Anxiety">The Anxiety Patrol</option>
+                    <option value="Motivator">The Motivator Coach</option>
+                    <option value="Procrastinator">The Infamous Procrastinator</option>
+                    <option value="Doubter">The Doubter?</option>
+                    <option value="Optimist">The Optimist!</option>
+                    <option value="DramaQueen">The Drama Queen</option>
+                    <option value="Overthinker">The Overthinker (Maybe?)</option>
+                    <option value="Perfectionist">The Perfectionist.</option>
+                    <option value="Saboteur">The Saboteur</option>
+                    <option value="WiseOne">The Wise One</option>
+                    <option value="Daydreamer">The Daydreamer</option>
+                    <option value="Rebel">The Rebel</option>
+                    <option value="Cynic">The Cynic</option>
+                    <option value="Rationalizer">The Rationalizer</option>
+                    <option value="SnackQueen">The Snack Muncher</option>
+                    <option value="FOMO">The FOMO Police (Fear of Missing Out)</option>
+                    <option value="SassySavior">Your Sassy Savior</option>
+                    <option value="GuiltTrip">The Guilt Trip Agitator</option>
+                    <option value="MotivationZero">The Motivation Zero Zone</option>
+                    <option value="SarcasticBFF">The Sarcastic BFF</option>
                     <option value="Custom">Create your own name for your voice:</option>
                 </select>
                 <input id="customName" type="text" placeholder="Enter custom name" style="display: none;" />
-=======
-                <input type="text" id="memberName" required>
->>>>>>> parent of 4f8819c (Update a lot)
 
-                <label for="memberRole">Role:</label>
-                <input type="text" id="memberRole" required>
+                <label for="memberRole">Voice:</label>
+                <input id="memberRole" type="text" maxlength="50" placeholder="What is your voice saying?" required />
 
-                <label for="memberEmoji">Choose an Emoji:</label>
+                <label for="memberEmoji">Choose an icon for your voice:</label>
                 <div class="emoji-picker" id="emojiPicker">
                     <!-- Emoji choices -->
-                    <span>🙂</span>
-                    <span>🚀</span>
-                    <span>🌟</span>
-                    <span>🦄</span>
-                    <span>💻</span>
-                    <span>📚</span>
-                    <span>🎨</span>
+                    <span>🙂</span> <!-- Standard emoji -->
+                    <span>🚀</span> <!-- Rocket -->
+                    <span>🌟</span> <!-- Star -->
+                    <span>🦄</span> <!-- Unicorn -->
+                    <span>💻</span> <!-- Laptop -->
+                    <span>🧠</span> <!-- Brain -->
+                    <span>🔧</span> <!-- Wrench -->
+                    <span>👩‍🏫</span> <!-- Teacher -->
+                    <span>🧑‍🎨</span> <!-- Artist -->
+                    <span>💡</span> <!-- Lightbulb -->
+<span>👩‍🏫</span> <!-- Teacher -->
+<span>🧑‍🔬</span> <!-- Scientist -->
+                    <span>📚</span> <!-- Books -->
+                    <span>🎨</span> <!-- Art -->
+                    <span>😨</span> <!-- Fearful (Anxiety) -->
+                    <span>🛋️</span> <!-- Couch (Laziness) -->
+                    <span>🕵️‍♂️</span> <!-- Detective (Paranoia) -->
+                    <span>🧑‍⚖️</span> <!-- Judge (Police) -->
+                    <span>😎</span> <!-- Sunglasses (Outgoing) -->
+                    <span>🤔</span> <!-- Thinking face (Overthinking) -->
+                    <span>😴</span> <!-- Sleeping face (Tiredness) -->
+                    <span>😡</span> <!-- Angry face (Frustration) -->
+                    <span>🥳</span> <!-- Partying face (Excitement) -->
+                    <span>😟</span> <!-- Worried face (Worry) -->
+                    <span>🙄</span> <!-- Rolling eyes (Boredom) -->
+                    <span>🥱</span> <!-- Yawning (Laziness) -->
+                    <span>🧘‍♀️</span> <!-- Yoga (Calmness) -->
+                    <span>🤯</span> <!-- Mind-blown face (Overwhelming) -->
+                    <span>😆</span> <!-- Grinning (Laughter) -->
+                    <span>😇</span> <!-- Angel (Moral voice) -->
+                    <span>😜</span> <!-- Stuck-out tongue (Playfulness) -->
                 </div>
                 <input type="hidden" id="memberEmoji" value="🙂"> <!-- default emoji -->
             </div>
             <div>
-                <button type="button" class="add" id="addMember">Add Member</button>
+                <button type="button" class="add" id="addMember">Add Member!</button>
                 <button type="button" class="close" id="closeMemberDialog">Cancel</button>
             </div>
         </form>
     </dialog>
-
-    <script>
-        const newProjectButton = document.getElementById('new-project');
-        const formDialog = document.getElementById('formDialog');
-        const closeProjectDialogButton = document.getElementById('closeProjectDialog');
-        const projectForm = document.getElementById('projectForm');
-        const projectShelf = document.getElementById('projectShelf');
-
-        const memberDialog = document.getElementById('memberDialog');
-        const closeMemberDialogButton = document.getElementById('closeMemberDialog');
-        const addMemberButton = document.getElementById('addMember');
-        const teamForm = document.getElementById('teamForm');
-        const emojiPicker = document.getElementById('emojiPicker');
-        const emojiInput = document.getElementById('memberEmoji');
-
-        const projects = [];
-        let currentProject = null;
-        let editingMemberIndex = -1;
-
-        // Open dialog for a new project
-        newProjectButton.addEventListener('click', () => {
-            formDialog.showModal();
-        });
-
-        // Close project dialog
-        closeProjectDialogButton.addEventListener('click', () => {
-            formDialog.close();
-        });
-
-        // Save the project
-        projectForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const projectName = document.getElementById('projectName').value;
-
-            if (projectName) {
-                currentProject = { name: projectName, team: [] };
-                projects.push(currentProject);
-                displayProjects();
-                formDialog.close();
-            }
-        });
-
-        // Open dialog to add or edit a team member for the specific project
-        function openMemberDialogForProject(project, index = -1) {
-            currentProject = project; // Set current project to add/edit member
-            editingMemberIndex = index; // Store the member's index if editing
-
-            // If editing, pre-fill the form with member details
-            if (index >= 0) {
-                const member = project.team[index];
-                document.getElementById('memberName').value = member.name;
-                document.getElementById('memberRole').value = member.role;
-                emojiInput.value = member.emoji;
-                highlightSelectedEmoji(member.emoji);
-            }
-
-            memberDialog.showModal();
-        }
-
-        // Close member dialog
-        closeMemberDialogButton.addEventListener('click', () => {
-            memberDialog.close();
-        });
-
-        // Add a team member to the current project
-        addMemberButton.addEventListener('click', () => {
-            const memberName = document.getElementById('memberName').value;
-            const memberRole = document.getElementById('memberRole').value;
-            const memberEmoji = emojiInput.value;
-
-            if (memberName && memberRole && currentProject) {
-                if (editingMemberIndex >= 0) {
-                    // Update the existing member
-                    currentProject.team[editingMemberIndex] = { name: memberName, role: memberRole, emoji: memberEmoji };
-                    editingMemberIndex = -1; // Reset editing mode
-                } else {
-                    // Add a new member
-                    currentProject.team.push({ name: memberName, role: memberRole, emoji: memberEmoji });
-                }
-
-                document.getElementById('memberName').value = '';
-                document.getElementById('memberRole').value = '';
-                displayProjects();  // Update the displayed project with new member
-            }
-
-            memberDialog.close();
-        });
-
-        // Display all projects and their team members
-        function displayProjects() {
-            projectShelf.innerHTML = '';
-
-            projects.forEach((project, index) => {
-                const projectCard = document.createElement('div');
-                projectCard.classList.add('project-card');
-
-                const projectTitle = document.createElement('h3');
-                projectTitle.textContent = project.name;
-                projectCard.appendChild(projectTitle);
-
-                const addTeamMemberButton = document.createElement('button');
-                addTeamMemberButton.textContent = 'Add Team Member';
-                addTeamMemberButton.classList.add('add');
-                addTeamMemberButton.addEventListener('click', () => openMemberDialogForProject(project));
-
-                projectCard.appendChild(addTeamMemberButton);
-
-                const teamContainer = document.createElement('div');
-                project.team.forEach((member, memberIndex) => {
-                    const memberDiv = document.createElement('div');
-                    memberDiv.classList.add('team-member');
-                    memberDiv.innerHTML = `
-                        <span>${member.emoji}</span>
-                        <strong>${member.name}</strong>
-                        <p>Role: ${member.role}</p>
-                    `;
-                    
-                    // Edit and Delete buttons
-                    const editButton = document.createElement('button');
-                    editButton.classList.add('edit-btn');
-                    editButton.textContent = 'Edit';
-                    editButton.addEventListener('click', () => openMemberDialogForProject(project, memberIndex));
-
-                    const deleteButton = document.createElement('button');
-                    deleteButton.textContent = 'Delete';
-                    deleteButton.addEventListener('click', () => {
-                        project.team.splice(memberIndex, 1);
-                        displayProjects();
-                    });
-
-                    memberDiv.appendChild(editButton);
-                    memberDiv.appendChild(deleteButton);
-                    teamContainer.appendChild(memberDiv);
-                });
-
-                projectCard.appendChild(teamContainer);
-                projectShelf.appendChild(projectCard);
-            });
-        }
-
-        // Emoji picker logic
-        emojiPicker.addEventListener('click', (event) => {
-            const selectedEmoji = event.target.textContent;
-            if (selectedEmoji) {
-                emojiInput.value = selectedEmoji;
-                highlightSelectedEmoji(selectedEmoji);
-            }
-        });
-
-        function highlightSelectedEmoji(selectedEmoji) {
-            const emojiSpans = emojiPicker.querySelectorAll('span');
-            emojiSpans.forEach(span => {
-                if (span.textContent === selectedEmoji) {
-                    span.classList.add('selected');
-                } else {
-                    span.classList.remove('selected');
-                }
-            });
-        }
-    </script>
 </body>
 </html>
