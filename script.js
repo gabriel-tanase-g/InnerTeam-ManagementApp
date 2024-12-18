@@ -3,6 +3,7 @@ const formDialog = document.getElementById('formDialog');
 const closeProjectDialogButton = document.getElementById('closeProjectDialog');
 const projectForm = document.getElementById('projectForm');
 const projectShelf = document.getElementById('projectShelf');
+const introMessage = document.getElementById('introMessage');  // Empty state message element
 
 const memberDialog = document.getElementById('memberDialog');
 const closeMemberDialogButton = document.getElementById('closeMemberDialog');
@@ -86,6 +87,13 @@ addMemberButton.addEventListener('click', () => {
 });
 
 function displayProjects() {
+    // Show or hide the introMessage based on the number of projects
+    if (projects.length === 0) {
+        introMessage.style.display = 'block'; // Show intro message if no projects
+    } else {
+        introMessage.style.display = 'none';  // Hide intro message if there are projects
+    }
+
     projectShelf.innerHTML = '';
 
     projects.forEach((project, index) => {
@@ -101,6 +109,16 @@ function displayProjects() {
         addTeamMemberButton.classList.add('add');
         addTeamMemberButton.addEventListener('click', () => openMemberDialogForProject(project));
         projectCard.appendChild(addTeamMemberButton);
+
+        const deleteProjectButton = document.createElement('button');
+        deleteProjectButton.textContent = 'Delete Project';
+        deleteProjectButton.classList.add('close');
+        deleteProjectButton.addEventListener('click', () => {
+            // Remove project from the array
+            projects.splice(index, 1);
+            displayProjects();  // Update the UI after deletion
+        });
+        projectCard.appendChild(deleteProjectButton);  // Add the delete button to the project card
 
         const teamTreeContainer = document.createElement('div');
         teamTreeContainer.classList.add('tree');
@@ -118,7 +136,7 @@ function displayProjects() {
                 <p>Voice: ${member.role}</p>
             `;
 
-            // Edit and Delete buttons
+            // Edit and Delete buttons for members
             const editButton = document.createElement('button');
             editButton.classList.add('edit-btn');
             editButton.textContent = 'Edit';
@@ -129,7 +147,7 @@ function displayProjects() {
             deleteButton.classList.add('close');
             deleteButton.addEventListener('click', () => {
                 project.team.splice(memberIndex, 1);
-                displayProjects();
+                displayProjects(); // Re-render after deletion
             });
 
             memberDiv.appendChild(editButton);
@@ -141,7 +159,7 @@ function displayProjects() {
         if (project.team.length > 0) {
             teamTreeContainer.appendChild(branchContainer);
         }
-        
+
         projectCard.appendChild(teamTreeContainer);
         projectShelf.appendChild(projectCard);
     });
@@ -169,6 +187,7 @@ function highlightSelectedEmoji(selectedEmoji) {
         selectedSpan.classList.add('selected');
     }
 }
+
 const memberNameSelect = document.getElementById('memberName');
 const customNameInput = document.getElementById('customName');
 
@@ -180,6 +199,7 @@ memberNameSelect.addEventListener('change', () => {
         customNameInput.style.display = 'none';   // Hide input
     }
 });
+
 addMemberButton.addEventListener('click', () => {
     let memberName = memberNameSelect.value;
     if (memberName === 'Custom') {

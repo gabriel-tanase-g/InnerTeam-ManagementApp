@@ -1,335 +1,169 @@
-  /* General Styles */
-    :root {
-        --main-color: rgb(241, 168, 32);
-        --secondary-color: rgb(155, 154, 154);
-    }
+/* General Styles */
+:root {
+    --main-color: rgb(241, 168, 32);
+    --secondary-color: rgb(155, 154, 154);
+}
 
-    body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+}
 
-    h1, h3, p {
-        margin: 0;
-    }
+h1, h3, p {
+    margin: 0;
+}
 
-    /* Header Styles */
-    header {
-        width: 100%;
-        height: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--secondary-color);
-        box-shadow: 0 0 5px black;
-    }
-
-    header button {
-        border: none;
-        border-radius: 5px;
-        padding: 0.5rem 1rem;
-        font-weight: 600;
-        background-color: var(--main-color);
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    header button:hover {
-        background-color: darkorange;
-    }
-
-    /* Project Shelf */
-    .project-shelf {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        padding: 2rem;
-        justify-content: center;
-    }
-
-    .project-card {
-        width: 90%;
-        max-width: 350px;
-        border: 2px solid var(--main-color);
-        border-radius: 10px;
-        padding: 1rem;
-        background: #fff;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin: 0 auto;
-    }
-
-    /* Team Member */
-    .team-member {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        border-radius: 5px;
-        padding: 0.5rem;
-        margin-bottom: 0.5rem;
-        background: #fafafa;
-        min-height: 120px;
-    }
-
-    .team-member button {
-        padding: 0.3rem 0.6rem;
-        border: none;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        margin-top: 5px;
-        font-size: 1rem;
-        width: 80px;
-        box-shadow: 1px 1px 1px gray;
-    }
-
-    .team-member .edit-btn {
-        background-color: hsl(220, 90%, 55%);
-        color: white;
-    }
-
-    .team-member .edit-btn:hover {
-        background-color: hsl(220, 90%, 45%);
-    }
-
-    .team-member .close {
-        background-color: hsl(0, 80%, 50%);
-        color: white;
-    }
-
-    .team-member .close:hover {
-        background-color: hsl(0, 80%, 60%);
-    }
-
-    /* Form */
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    form input[type="text"],
-    form input[type="number"],
-    form button {
-        padding: 0.5rem;
-        border-radius: 5px;
-        border: 1px solid var(--secondary-color);
-    }
-
-    /* Dialog */
-    dialog {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        padding: 1rem;
-    }
-
-    dialog button {
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 5px;
-    }
-
-    /* Buttons */
-    .close {
-        background-color: red;
-        color: white;
-        cursor: pointer;
-    }
-
-    .add {
-        background-color: var(--main-color);
-        cursor: pointer;
-        width: 50%;
-        margin:0 auto;
-        border-radius: 5px;
-        padding: 0.5rem 1rem;
-        font-weight: 600;
-        border:none;
-    }
-    .add:hover {
-        background-color: darkorange;
-    }
-
-    /* Emoji Picker */
-    .emoji-picker {
-        font-size: 1.5rem;
-        padding: 0.5rem;
-        display: flex;
-        gap: 5px;
-        flex-wrap: wrap;
-        max-width: 300px;
-        cursor: pointer;
-    }
-
-    .emoji-picker span {
-        cursor: pointer;
-        padding: 0.2rem;
-    }
-
-    .emoji-picker .selected {
-        outline: 3px solid var(--main-color);
-    }
-
-    /* Selection Container */
-    .selection {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    /* TREE */
-
-
-/* Tree Structure Styles */
-.tree {
+/* Header Styles */
+header {
+    width: 100%;
+    height: 4rem;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    position: relative;
-    margin-top: 1rem;
-}
-
-.tree .branch {
-    display: flex;
-    gap: 2rem;
-    position: relative;
-    margin-top: 1rem;
-}
-
-.tree .branch::before {
-    content: '';
-    position: absolute;
-    top: -0.5rem;
-    left: 0;
-    right: 0;
-    height: 2px;
     background-color: var(--secondary-color);
-    z-index: -1;
+    box-shadow: 0 0 5px black;
 }
 
-.tree .team-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-    padding: 0.5rem;
-    background: #fafafa;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-.tree .team-member::before {
-    content: '';
-    position: absolute;
-    top: -1rem;
-    left: 50%;
-    width: 2px;
-    height: 1rem;
-    background-color: var(--secondary-color);
-    z-index: -1;
-}
-form input:focus, 
-form select:focus, 
-form textarea:focus {
+header button {
     border: none;
-    outline: 2px solid var(--main-color);  /* Change to your preferred color */
-    outline-offset: 2px;  /* Optional: adjusts the distance between the outline and the input field */
-}
-/* Ensure the tree branches appear below the team members */
-.tree .branch {
-    z-index: 0;
-}
-
-.tree .team-member {
-    z-index: 1;  /* Ensure the member cards appear above the branches */
-}
-/* Add margin or padding to create space between the tree and team members */
-.tree .branch {
-    margin-top: 1.5rem;  /* Adjust the space between branches and members */
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    background-color: var(--main-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.tree .team-member {
-    margin-top: 1rem;  /* Ensure the members aren't too close to the branches */
+header button:hover {
+    background-color: darkorange;
 }
-.tree .branch {
+
+/* Project Shelf */
+.project-shelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+    justify-content: center;
+}
+
+.project-card {
+    width: 90%;
+    max-width: 350px;
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+    padding: 1rem;
+    background: #fff;
     display: flex;
-    justify-content: center; /* Align items in the center */
-    gap: 1.5rem;  /* Adjust gap between team members */
-}
-/* Ensure the branches are correctly positioned */
-.tree .branch {
-    position: relative;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
 }
 
-/* Ensure the tree container uses grid for layout */
-.tree .branch {
-    display: grid;  /* Use grid layout */
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));  /* Allow up to 3 members per row */
-    gap: 1rem;  /* Add space between team member boxes */
-    width: 100%;  /* Ensure the container takes up the available width */
+.selection{
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
 }
-
-/* Adjust the team member boxes to fit within the grid layout */
-.tree .team-member {
+/* Team Member */
+.team-member {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    border: 1px solid var(--secondary-color);
     border-radius: 5px;
     padding: 0.5rem;
-    background: #fafafa;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-    min-height: 120px;  /* Ensure each member box has a minimum height */
-}
-/* Adjust the team member boxes */
-.tree .team-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-    padding: 0.5rem;
-    background: #fafafa;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-    min-height: 120px;  /* Ensure each member box has a minimum height */
-    width: 100%;  /* Ensure the box uses available space */
-    overflow: hidden;  /* Prevent overflow */
-    text-align: center;  /* Align text in the center */
-}
-
-/* Ensures long text wraps properly within the member box */
-.tree .team-member strong, 
-.tree .team-member p {
-    word-wrap: break-word;  /* Break long words to fit in the container */
-    overflow: hidden;  /* Prevent text overflow */
-    text-overflow: ellipsis;  /* Optionally add ellipsis for overflowed text */
-    width: 100%;  /* Ensure text container takes full width */
-}
-
-/* Optional: Limit the height of the name or role text and add ellipsis */
-.tree .team-member strong, 
-.tree .team-member p {
-    white-space: normal; /* Allow text to wrap */
-    overflow: hidden;
-    text-overflow: ellipsis;  /* Show ellipsis if the text is too long */
-    display: block;
-    width: 100%;  /* Make sure text occupies full width of the box */
-}
-
-/* Optional: Ensure emojis stay within the container and don't overflow */
-.tree .team-member span {
-    font-size: 2rem;
     margin-bottom: 0.5rem;
-    display: inline-block;  /* Ensure emojis are inline within the box */
+    background: #fafafa;
+    min-height: 120px;
 }
+
+.team-member button {
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 1rem;
+    width: 80px;
+    box-shadow: 1px 1px 1px gray;
+}
+
+.close {
+    border:none;
+    margin:0 auto;
+    border-radius: 0.7rem;
+    background-color: hsl(0, 80%, 50%);
+    color: white;
+}
+
+.team-member .edit-btn {
+    background-color: hsl(220, 90%, 55%);
+    color: white;
+}
+
+.team-member .edit-btn:hover {
+    background-color: hsl(220, 90%, 45%);
+}
+
+.close {
+    background-color: hsl(0, 80%, 50%);
+    color: white;
+}
+
+.close:hover {
+    background-color: hsl(0, 80%, 60%);
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form input[type="text"],
+form input[type="number"],
+form button {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+}
+
+/* Dialog */
+dialog {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+
+dialog button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Buttons */
+
+.add {
+    background-color: var(--main-color);
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border: none;
+}
+
+.add:hover {
+    background-color: darkorange;
+}
+
 /* Emoji Picker */
 .emoji-picker {
     font-size: 1.5rem;
@@ -346,8 +180,120 @@ form textarea:focus {
     padding: 0.2rem;
 }
 
-/* Highlight selected emoji */
 .emoji-picker .selected {
     outline: 3px solid var(--main-color);
     border-radius: 5px;
 }
+
+/* Tree Structure Styles */
+.tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.tree .branch {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-top: 1.5rem;
+}
+
+.tree .team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 0.5rem;
+    background: #fafafa;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    min-height: 120px;
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.tree .team-member strong,
+.tree .team-member p {
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.tree .team-member span {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Optional: Ensure emojis stay within the container and don't overflow */
+.tree .team-member span {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+#introMessage {
+    background-color: #f3f4f6;  /* Light background color */
+    border-radius: 8px;  /* Rounded corners */
+    padding: 40px;
+    max-width: 700px;
+    margin: 50px auto;  /* Center the message block */
+    text-align: center;  /* Center align the text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow effect */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Clean modern font */
+}
+
+#introMessage h2 {
+    font-size: 2.5rem;
+    color: #333;  /* Dark color for header */
+    margin-bottom: 20px;
+}
+
+#introMessage p {
+    font-size: 1.2rem;
+    color: #555;  /* Softer color for paragraph */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#introMessage h3 {
+    font-size: 1.8rem;
+    color: #e74c3c;  /* Red color for emphasis */
+    margin-top: 20px;
+}
+
+#introMessage button {
+    background-color: #3498db;  /* Blue button color */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#introMessage button:hover {
+    background-color: #2980b9;  /* Darker blue on hover */
+}
+
+#introMessage a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+#introMessage a:hover {
+    color: #2980b9;
+}
+
