@@ -1,31 +1,40 @@
 :root {
     --main-color: rgb(241, 168, 32);
     --secondary-color: rgb(155, 154, 154);
+    --background-color: #f4f4f9;
+    --hover-color: darkorange;
+    --error-color: hsl(0, 80%, 50%);
+    --success-color: hsl(220, 90%, 55%);
+    --font-family: 'Roboto', sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f9;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
 }
 
 h1, h3, p {
     margin: 0;
 }
 
-/* Header Styles */
+/* Header */
 header {
     width: 100%;
     height: 4rem;
     display: flex;
-    background-color: var(--secondary-color);
-    box-shadow: 0 0 5px black;
-    display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 5px black;
+    padding: 0 3rem;
+}
+
+header #logo {
+    height: 60px;
+    margin-right: 5rem;
 }
 
 header button {
@@ -36,28 +45,19 @@ header button {
     background-color: var(--main-color);
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-#logo {
-    height: 60px; /* Adjust size as needed */
-    margin-right: 10px; /* Add space between logo and button */
-    margin-left:3rem;
+    margin-right:5rem;
 }
 
-#new-project {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right:3rem;
-}
 header button:hover {
-    background-color: darkorange;
+    background-color: var(--hover-color);
 }
+
 
 /* Project Shelf */
 .project-shelf {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 10px;
+    gap: 1rem;
     padding: 2rem;
     justify-content: center;
 }
@@ -76,50 +76,44 @@ header button:hover {
     position: relative;
 }
 
-.project-card .delete-project-btn {
-    margin-top: auto; /* This will push the button to the bottom */
-}
-
-.selection {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
 /* Team Member */
 .team-member {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    border-radius: 5px;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
     background: #fafafa;
-    min-height: 120px;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.team-member span {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-member strong,
+.team-member p {
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 .team-member button {
-    padding: 0.3rem 0.6rem;
     border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    margin-top: 5px;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
     font-size: 1rem;
+    cursor: pointer;
     width: 80px;
+    margin-top: 5px;
     box-shadow: 1px 1px 1px gray;
 }
 
-.close {
-    border: none;
-    margin: 0 auto;
-    border-radius: 0.7rem;
-    background-color: hsl(0, 80%, 50%);
-    color: white;
-}
-
 .team-member .edit-btn {
-    background-color: hsl(220, 90%, 55%);
+    background-color: var(--success-color);
     color: white;
 }
 
@@ -127,65 +121,18 @@ header button:hover {
     background-color: hsl(220, 90%, 45%);
 }
 
-.close {
-    background-color: hsl(0, 80%, 50%);
+.team-member .close {
+    background-color: var(--error-color);
     color: white;
 }
 
-.close:hover {
+.team-member .close:hover {
     background-color: hsl(0, 80%, 60%);
-}
-
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-form input[type="text"],
-form input[type="number"],
-form button {
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid var(--secondary-color);
-}
-
-/* Dialog */
-dialog {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-}
-
-dialog button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-}
-
-/* Buttons */
-
-.add {
-    background-color: var(--main-color);
-    cursor: pointer;
-    width: 50%;
-    margin: 0 auto;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    border: none;
-}
-
-.add:hover {
-    background-color: darkorange;
 }
 
 /* Emoji Picker */
 .emoji-picker {
     font-size: 1.5rem;
-    padding: 0.5rem;
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
@@ -203,64 +150,22 @@ dialog button {
     border-radius: 5px;
 }
 
-/* Tree Structure Styles */
-.tree {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    margin-top: 1rem;
-    padding: 1rem;
-}
-
-.tree .branch {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.5rem;
-    width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-    margin-top: 1.5rem;
-}
-
-.tree .team-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+/* Dialog */
+dialog {
+    border: none;
     border-radius: 10px;
-    padding: 0.5rem;
-    background: #f7f5f3;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-    min-height: 120px;
-    width: 100%;
-    max-width: 350px;
-    overflow: hidden;
-    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
 }
 
-.tree .team-member strong,
-.tree .team-member p {
-    word-wrap: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
+dialog button {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
 }
 
-.tree .team-member span {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-/* Optional: Ensure emojis stay within the container and don't overflow */
-.tree .team-member span {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-/* Intro Message Styles */
+/* Intro Message */
 #introMessage {
     background-color: #f3f4f6;
     border-radius: 8px;
@@ -269,7 +174,6 @@ dialog button {
     margin: 50px auto;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #introMessage h2 {
@@ -287,7 +191,7 @@ dialog button {
 
 #introMessage h3 {
     font-size: 1.8rem;
-    color: #e74c3c;
+    color: var(--error-color);
     margin-top: 20px;
 }
 
@@ -316,16 +220,12 @@ dialog button {
     color: #2980b9;
 }
 
-/* Media Queries for Mobile and Smaller Screens */
+/* Responsive Styles */
 @media (max-width: 768px) {
     header {
+        flex-direction: column;
         height: auto;
         padding: 10px;
-    }
-
-    header button {
-        width: 100%;
-        padding: 1rem;
     }
 
     .project-shelf {
@@ -334,9 +234,7 @@ dialog button {
     }
 
     .project-card {
-        width: 100%;
         max-width: 100%;
-        padding: 1rem;
     }
 
     #introMessage {
@@ -344,27 +242,8 @@ dialog button {
         margin: 20px;
     }
 
-    #introMessage h2 {
-        font-size: 2rem;
-    }
-
-    #introMessage p {
-        font-size: 1rem;
-    }
-
-    #introMessage h3 {
-        font-size: 1.5rem;
-    }
-
-    #introMessage button {
-        width: 100%;
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-
     .emoji-picker {
-        font-size: 1.2rem;
-        max-width: 100%;
+        font-size: 1.3rem;
     }
 
     .team-member button {
@@ -379,57 +258,308 @@ dialog button {
     }
 
     .emoji-picker {
-        font-size: 1.3rem;
-    }
-
-    .project-shelf {
-        padding: 1rem;
+        font-size: 1.2rem;
     }
 }
-/* Reset button styles for mobile devices */
-button {
-    color: inherit; /* Ensures button text color matches the parent text color */
-    background-color: transparent; /* Removes the default background */
-    border: none; /* Removes the default border */
-    outline: none; /* Removes the focus outline */
-}
-
-/* Override iOS default link styling */
-button, a {
-    -webkit-appearance: none; /* Removes default iOS button styling */
-    -moz-appearance: none;
-    appearance: none;
-    text-decoration: none; /* Removes underline from links (if you use them as buttons) */
-}
-
-/* Specific button styles */
-header button,
-.add,
-.team-member button {
-    color: #fff; /* Use white text for buttons */
-    background-color: var(--main-color); /* Your preferred background color */
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+    padding: 0.5rem;
     border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    background-color: #fff;
+    color: #333; /* Text color */
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus State */
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 5px rgba(241, 168, 32, 0.5); /* Light glow in --main-color */
+}
+
+/* Buttons */
+form button {
     padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: bold;
+    border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: darkorange;
+    transform: scale(1.05); /* Slight enlarge on hover */
+}
+
+form button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(241, 168, 32, 0.5);
+}
+
+/* Placeholder Styling */
+form input::placeholder,
+form textarea::placeholder {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Disabled State */
+form input:disabled,
+form textarea:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+}
+/* General Button Styles */
+button {
+    color: #fff; /* White text */
+    background-color: var(--main-color); /* Primary color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Spacing */
+    font-size: 1rem; /* Text size */
+    font-weight: bold; /* Emphasize text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth effects */
+}
+
+/* Hover State */
+button:hover {
+    background-color: darkorange; /* Slightly darker for hover */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+/* Active State */
+button:active {
+    background-color: #c45e00; /* Darker shade for active press */
+    transform: scale(0.98); /* Slight shrink effect */
+}
+
+/* Focus State */
+button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(241, 168, 32, 0.5); /* Glow effect in main color */
+}
+
+/* Disabled State */
+button:disabled {
+    background-color: #e0e0e0; /* Greyed out */
+    color: #999; /* Lighter text color */
+    cursor: not-allowed; /* Show disabled cursor */
+    transform: none; /* Disable transform effects */
+}
+
+/* Specific Header Button */
+header button {
+    padding: 0.5rem 1rem;
+    background-color: var(--main-color);
+    font-size: 1rem;
     font-weight: 600;
-    text-align: center;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-header button:hover,
-.add:hover,
-.team-member button:hover {
-    background-color: darkorange; /* Darken background color on hover */
+header button:hover {
+    background-color: darkorange;
 }
 
-/* Additional Button Specific Styles */
-button:focus {
-    outline: none; /* Prevents focus outline */
-    box-shadow: none; /* Removes default focus box shadow */
+/* Add Button */
+.add {
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#formDialog{
-    display: none;
+.add:hover {
+    background-color: darkorange;
+    transform: scale(1.05);
+}
+
+/* Close and Edit Buttons for Team Members */
+.team-member button {
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 80px;
+    color: white;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.team-member .edit-btn {
+    background-color: hsl(220, 90%, 55%);
+}
+
+.team-member .edit-btn:hover {
+    background-color: hsl(220, 90%, 45%);
+}
+
+.team-member .close {
+    background-color: hsl(0, 80%, 50%);
+}
+
+.team-member .close:hover {
+    background-color: hsl(0, 80%, 60%);
+}
+#projectForm {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     gap:1rem;
+    text-align: left; /* Left-align form labels */
+}
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Dim the background */
+    backdrop-filter: blur(3px); /* Optional blur effect */
+}
+dialog {
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    padding: 1rem; /* Space inside the dialog */
+    max-width: 400px; /* Set a maximum width */
+    width: 90%; /* Responsive width */
+    background-color: #fff; /* White background */
+    font-family: 'Roboto', sans-serif; /* Match your site's font */
+    color: #333; /* Primary text color */
+    text-align: center; /* Center align text */
+}
+/* Dialog Styling */
+dialog#memberDialog {
+    border: none;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+/* Dialog Backdrop */
+dialog#memberDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+/* Form Styling */
+#teamForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+/* Section Header */
+#teamForm h3 {
+    font-size: 1.5rem;
+    color: var(--main-color); /* Use your primary color */
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Labels */
+#teamForm label {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Select Dropdown */
+#teamForm select {
+    padding: 0.5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f4f4f9;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+#teamForm select:focus {
+    outline: none;
+    border-color: var(--main-color);
+}
+
+/* Custom Name Input */
+#teamForm input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f4f4f9;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+#teamForm input[type="text"]:focus {
+    outline: none;
+    border-color: var(--main-color);
+}
+
+/* Emoji Picker */
+.emoji-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.emoji-picker span {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.emoji-picker span:hover {
+    transform: scale(1.2);
+}
+
+/* Buttons */
+#teamForm button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#teamForm .add {
+    background-color: var(--main-color);
+    color: white;
+}
+
+#teamForm .add:hover {
+    background-color: darkorange;
+    transform: scale(1.05);
+}
+
+#teamForm .close {
+    background-color: #ccc;
+    color: #333;
+}
+
+#teamForm .close:hover {
+    background-color: #bbb;
+    transform: scale(1.05);
 }

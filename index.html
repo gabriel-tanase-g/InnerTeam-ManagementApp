@@ -32,7 +32,7 @@
         <form id="teamForm">
             <div class="selection">
                 <h3>Add an Inner Team Member:</h3>
-                <label for="memberName">Voice Name:</label>
+                <div><label for="memberName">Voice Name:</label>
                 <select id="memberName" required>
                     <option value="" disabled selected>Choose a name for your voice or create one!</option>
                     <option value="Anxiety">The Anxiety Patrol</option>
@@ -58,10 +58,11 @@
                     <option value="Custom">Create your own name for your voice:</option>
                 </select>
                 <input id="customName" type="text" placeholder="Enter custom name" style="display: none;" />
-
+            </div>
+            <div>
                 <label for="memberRole">Voice Message:</label>
-                <input id="memberRole" type="text" maxlength="50" placeholder="What is the inner voice saying?" required />
-
+                <input id="memberRole" type="text" maxlength="300" placeholder="What is the inner voice saying?" required />
+            </div>
                 <label for="memberEmoji">Choose a face for your voice:</label>
                 <div class="emoji-picker" id="emojiPicker">
                     <!-- Emoji choices -->
